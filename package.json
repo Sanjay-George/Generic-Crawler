@@ -4,15 +4,24 @@
   "description": "The crawler to end all crawlers",
   "main": "server.js",
   "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sanjay George",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "mysql": "^2.18.1",
-    "puppeteer": "^13.5.0",
-    "puppeteer-screen-recorder": "^1.1.11"
+    "puppeteer": "^22.14.0",
+    "puppeteer-screen-recorder": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
   }
 }

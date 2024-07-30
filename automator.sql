@@ -16,9 +16,3 @@ CREATE TABLE `webhooks` (
   `url` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 );
-
-
-
-SELECT * FROM automator.crawlers;
-
-desc automator.crawlers;
