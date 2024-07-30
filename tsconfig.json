@@ -16,6 +16,7 @@
   "include": [
     "server.ts",
     "libs/**/*",
-    "globals.d.ts"
+    "globals.d.ts",
+    "appsettings.json"
   ]
 }

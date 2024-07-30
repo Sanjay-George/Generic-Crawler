@@ -1,5 +1,5 @@
-const mysql = require('mysql');
-const { getConfigValue } = require('../common/configReader.js');
+import mysql from 'mysql';
+import { getConfigValue } from '../common/configReader.js';
 
 const dbConfig = getConfigValue("dbConfig");
 const connection = mysql.createConnection({
@@ -91,12 +91,12 @@ const remove = id => {
 };
 
 
-module.exports = {
-    get,
-    getAll,
-    add,
-    remove,
-    update,
-    updateStatus,
+export {
     closeConnection,
+    getAll,
+    get,
+    add,
+    updateStatus,
+    update,
+    remove
 };

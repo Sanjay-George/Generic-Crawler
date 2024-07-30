@@ -2,7 +2,7 @@ import { LogicBuilder } from "./logicBuilder";
 import { addXhrListener, removeXhrListener, awaitXhrResponse } from '../../common/xhrHandler';
 import { removeNavigationListener, addNavigationListener, awaitNavigation } from '../../common/navigationHandler';
 import { specialKeys } from "../../common/enum";
-class TextInputLogicBuilder extends LogicBuilder
+export class TextInputLogicBuilder extends LogicBuilder
 {
     constructor(action, page, meta, json)
     {

@@ -47,5 +47,11 @@ async function awaitNavigation() {
 }
 
 
-export { addNavigationListener, removeNavigationListener, awaitNavigation };
+export { 
+    addNavigationListener, 
+    removeNavigationListener, 
+    awaitNavigation,
+    handlePageUnload,
+    handlePageLoad, 
+};
 

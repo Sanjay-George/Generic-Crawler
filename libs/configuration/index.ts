@@ -5,7 +5,7 @@ const { crawlerStatus } = require('../common/enum');
 
 let configChain = [];
 
-const configure = async (crawler) => {
+export const configure = async (crawler) => {
 	const browser = await puppeteer.launch({ headless: false, defaultViewport: null} );
 	try {
 		let page = await pageHelper.openTab(browser, crawler.url, handlePageLoad);
@@ -115,15 +115,7 @@ const sanitizeAnchorTags = async page => {
 			DomUtils.setAnchorTargetTypeToSelf(element);
 		});
 	});
-}
-
-module.exports = {
-	configure,
-}
-
-
-
-
+};
 
 
 

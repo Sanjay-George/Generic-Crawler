@@ -4,4 +4,5 @@ declare const DomUtils: {
     addUnloadListener: () => void;
     removeUnloadListener: () => void;
     sanitizeAnchorTags: (selector: string) => void;
+    setAnchorTargetTypeToSelf: (element: any) => void;
 };
