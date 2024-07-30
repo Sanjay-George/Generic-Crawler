@@ -1,7 +1,7 @@
-const { LogicBuilder } = require("./logicBuilder");
-const { addXhrListener, removeXhrListener, awaitXhrResponse } = require('../../common/xhrHandler');
-const { removeNavigationListener, addNavigationListener, awaitNavigation } = require('../../common/navigationHandler');
-const { specialKeys } = require("../../common/enum");
+import { LogicBuilder } from "./logicBuilder";
+import { addXhrListener, removeXhrListener, awaitXhrResponse } from '../../common/xhrHandler';
+import { removeNavigationListener, addNavigationListener, awaitNavigation } from '../../common/navigationHandler';
+import { specialKeys } from "../../common/enum";
 class TextInputLogicBuilder extends LogicBuilder
 {
     constructor(action, page, meta, json)

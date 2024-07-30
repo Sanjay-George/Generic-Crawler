@@ -15,6 +15,7 @@
   },
   "include": [
     "server.ts",
-    "libs/**/*"
+    "libs/**/*",
+    "globals.d.ts"
   ]
 }
