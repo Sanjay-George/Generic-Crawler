@@ -3,4 +3,5 @@ declare const DomUtils: {
     getQuerySelector: (element: any) => string;
     addUnloadListener: () => void;
     removeUnloadListener: () => void;
+    sanitizeAnchorTags: (selector: string) => void;
 };

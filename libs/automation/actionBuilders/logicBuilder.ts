@@ -1,9 +1,8 @@
-const { addXhrListener, removeXhrListener, awaitXhrResponse } = require('../../common/xhrHandler');
-const { removeNavigationListener, addNavigationListener, 
-    awaitNavigation, handlePageUnload } = require('../../common/navigationHandler');
-const pageHelper = require('../../common/pageHelper');
-const { elementTypes, actionTypes, configTypes } = require('../../common/enum');
-
+import { addXhrListener, removeXhrListener, awaitXhrResponse } from '../../common/xhrHandler';
+import { removeNavigationListener, addNavigationListener, 
+    awaitNavigation } from '../../common/navigationHandler';
+import { goBack, reloadPage, getWaitOptions } from '../../common/pageHelper';
+import { elementTypes, actionTypes, configTypes } from '../../common/enum';
 
 export class LogicBuilder
 {
@@ -136,7 +135,7 @@ export class LogicBuilder
         
         const { insertScripts } = this.meta; 
         // todo: make this incremental backoff
-        const httpRes = await pageHelper.goBack(page, insertScripts); 
+        const httpRes = await goBack(page, insertScripts); 
         await Promise.all([
             awaitXhrResponse(),
             awaitNavigation(),
@@ -146,7 +145,7 @@ export class LogicBuilder
         // console.log("INFO: going back, httpRes", httpRes);
     
         if(httpRes  === null) {
-            await pageHelper.reloadPage(page, insertScripts);
+            await reloadPage(page, insertScripts);
             // return await this.performAction(action, target, memory, step, page);
         }
     
@@ -156,13 +155,8 @@ export class LogicBuilder
         ]);
     
     
-        // await page.goBack(pageHelper.getWaitOptions());
-        // await page.reload(pageHelper.getWaitOptions());
+        // await page.goBack(getWaitOptions());
+        // await page.reload(getWaitOptions());
         return await this.performAction(action, target, memory, step, page);
     };    
-}
-
-
-module.exports = {
-    LogicBuilder,
 }

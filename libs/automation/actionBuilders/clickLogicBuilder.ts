@@ -1,7 +1,7 @@
 const { LogicBuilder } = require("./logicBuilder");
 const { addXhrListener, removeXhrListener, awaitXhrResponse } = require('../../common/xhrHandler');
 const { removeNavigationListener, addNavigationListener, awaitNavigation } = require('../../common/navigationHandler');
-class ClickLogicBuilder extends LogicBuilder 
+export class ClickLogicBuilder extends LogicBuilder 
 {
     constructor(action, page, meta, json)
     {
