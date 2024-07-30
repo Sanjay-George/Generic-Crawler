@@ -5,8 +5,17 @@ const pageHelper = require('../../common/pageHelper');
 const { elementTypes, actionTypes, configTypes } = require('../../common/enum');
 
 
-class LogicBuilder 
+export class LogicBuilder
 {
+    action: any;
+    page: any;
+    meta: any;
+    targets: any;
+    labels: any;
+    json: any;
+    jsonKeys: any;
+    isActionKeyPresent: boolean;
+    
     constructor(action, page, meta, json) {
         this.action = action;
         this.page = page;
@@ -80,6 +89,8 @@ class LogicBuilder
         }
         return true;
     };
+
+    perform = async (action, target, page) => {};
     
     tryActionsInMemory = async (memory, step, page) => {
         // repeat all actions from beginning of memory to end
