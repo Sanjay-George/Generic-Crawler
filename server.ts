@@ -1,19 +1,19 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
-import fs from "fs";
 import * as crawlersDL from "./libs/database/crawlersDL";
 import { crawlerStatus } from "./libs/common/enum";
 import { configure } from "./libs/configuration/index";
 import { init } from "./libs/automation/web-scraper";
+import swaggerDocs from "./swagger";
+import dotenv from "dotenv";
 
 const app = express();
 const port = 5000;
 
+dotenv.config();
 app.use(express.json());
-
-// https://expressjs.com/en/resources/middleware/cors.html
 app.use(cors());
+// https://expressjs.com/en/resources/middleware/cors.html
 
 // get all crawlers
 app.get("/api/crawlers/", async (req, res) => {
@@ -75,4 +75,7 @@ app.post("/api/crawlers/run/:id", async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Node server listening on port: ${port}`);
+    if(process.env.NODE_ENV === 'development')  {
+        swaggerDocs(app, port);
+    }
 });

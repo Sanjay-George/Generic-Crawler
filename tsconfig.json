@@ -15,8 +15,10 @@
   },
   "include": [
     "server.ts",
+    "swagger.ts",
     "libs/**/*",
     "globals.d.ts",
+    "swagger-output.json",
     "appsettings.json"
   ]
 }
