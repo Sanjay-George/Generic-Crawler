@@ -4,15 +4,28 @@
   "description": "The crawler to end all crawlers",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "node dist/server.js",
+    "dev": "npm run prestart && node dist/swagger.js && node dist/server.js"
   },
   "author": "Sanjay George",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "puppeteer": "^13.5.0",
-    "puppeteer-screen-recorder": "^1.1.11"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0",
+    "puppeteer": "^22.14.0",
+    "puppeteer-screen-recorder": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.3.0",
+    "rimraf": "^6.0.1",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "typescript": "^5.5.4"
   }
 }

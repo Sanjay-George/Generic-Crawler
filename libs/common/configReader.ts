@@ -1,9 +1,6 @@
 const config = require("../../appsettings.json");
 
-const getConfigValue = (key) => {
+export const getConfigValue = (key) => {
     return config[key];
 };
 
-module.exports = {
-    getConfigValue
-};

@@ -55,7 +55,7 @@ function turnOffRequestMode() {
             page.off("request", handleRequest);
             status.isXhrReadActive = false;
             page.on("response", handleResponse);
-            resolve();
+            resolve(null);
         }, 100); 
     });
 }
@@ -74,7 +74,7 @@ async function removeXhrListener() {
 async function awaitXhrResponse() {
     await turnOffRequestMode();
     
-    let { lastRequestTimer, clearRequestTimer, clearAllTimer } = await waitTillLastRequest();
+    let { lastRequestTimer, clearRequestTimer, clearAllTimer } = await waitTillLastRequest() as any;
     clearInterval(lastRequestTimer);
     clearInterval(clearRequestTimer);
     clearInterval(clearAllTimer);
@@ -82,6 +82,4 @@ async function awaitXhrResponse() {
 }
 
 
-exports.addXhrListener = addXhrListener;
-exports.removeXhrListener = removeXhrListener;
-exports.awaitXhrResponse = awaitXhrResponse;
+export { addXhrListener, removeXhrListener, awaitXhrResponse };

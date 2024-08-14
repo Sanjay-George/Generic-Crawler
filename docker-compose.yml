@@ -1,0 +1,21 @@
+name: web-automator
+
+services:
+  db:
+    image: mysql
+    #restart: always
+    ports:
+      - 3306:3306
+      - 33060:33060
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: automator
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_volume:/var/lib/mysql
+
+
+volumes:
+  db_volume:

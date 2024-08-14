@@ -31,7 +31,7 @@ function removeNavigationListener() {
     });
 }
 
-function waitForNavigation() {
+function waitForNavigation() : Promise<NodeJS.Timeout> {
     return new Promise((resolve, reject) => {
         let timer = setInterval(() => {
             if(!isNavigationInProgress)   {  
@@ -47,10 +47,11 @@ async function awaitNavigation() {
 }
 
 
-module.exports = {
-    addNavigationListener,
-    removeNavigationListener,
+export { 
+    addNavigationListener, 
+    removeNavigationListener, 
     awaitNavigation,
     handlePageUnload,
-}
+    handlePageLoad, 
+};
 
